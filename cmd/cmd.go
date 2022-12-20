@@ -15,6 +15,7 @@ import (
 	"github.com/openshift/osdctl/cmd/aao"
 	"github.com/openshift/osdctl/cmd/account"
 	"github.com/openshift/osdctl/cmd/capability"
+	"github.com/openshift/osdctl/cmd/clusteradmin"
 	"github.com/openshift/osdctl/cmd/cluster"
 	"github.com/openshift/osdctl/cmd/clusterdeployment"
 	"github.com/openshift/osdctl/cmd/cost"
@@ -80,6 +81,9 @@ func NewCmdRoot(streams genericclioptions.IOStreams) *cobra.Command {
 	rootCmd.AddCommand(upgradeCmd)
 
 	rootCmd.AddCommand(capability.NewCmdCapability())
+
+	//Add cluster-admin enable/disable commands
+	rootCmd.AddCommand(clusteradmin.NewCmdClusterAdmin())
 
 	return rootCmd
 }
